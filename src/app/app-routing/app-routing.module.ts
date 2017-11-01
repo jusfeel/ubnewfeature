@@ -7,7 +7,9 @@ import { SystemListComponent } from '../system/system-list/system-list.component
 const routes = [
   { path: '', redirectTo: '/links', pathMatch: 'full'},
   { path: 'links', component: LinkListComponent },
-  { path: 'systems', component: SystemListComponent }
+  { path: 'systems', component: SystemListComponent },
+  { path: 'news', loadChildren: '../sports/sports.module#SportsModule' },
+  { path: 'news', loadChildren: '../markets/markets.module#MarketsModule'}
 ];
 
 @NgModule({
