@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { LinkListComponent } from '../link-list/link-list.component';
 import { SystemListComponent } from '../system/system-list/system-list.component';
 
@@ -8,14 +8,17 @@ const routes = [
   { path: '', redirectTo: '/links', pathMatch: 'full'},
   { path: 'links', component: LinkListComponent },
   { path: 'systems', component: SystemListComponent },
-  { path: 'news', loadChildren: '../sports/sports.module#SportsModule' }, // lazy loading
-  { path: 'news', loadChildren: '../markets/markets.module#MarketsModule'} // lazy loading
+  { path: 'news', loadChildren: '../sports/sports.module#SportsModule' },
+  { path: 'news', loadChildren: '../markets/markets.module#MarketsModule'},
+  { path: 'weather', loadChildren: '../weather/weather.module#WeatherModule'},
+  { path: 'currency', loadChildren: '../currency/currency.module#CurrencyModule'}
+
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})
+    RouterModule.forRoot(routes)
   ],
   exports: [ RouterModule ],
   declarations: []
